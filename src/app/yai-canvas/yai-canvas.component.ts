@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, ElementRef } from '@angular/core';
 import { fabric } from "fabric";
 import { Item } from './../Item';
 
@@ -7,7 +7,9 @@ import { Item } from './../Item';
   templateUrl: './yai-canvas.component.html',
   styleUrls: ['./yai-canvas.component.scss']
 })
-export class YaiCanvasComponent implements OnInit {
+export class YaiCanvasComponent implements OnInit, AfterContentInit {
+  sizeCheckInterval = null;
+
   canvas: any;
   width: number = 1024;
   height: number = 768;
@@ -18,6 +20,9 @@ export class YaiCanvasComponent implements OnInit {
     new Item("B"),
   ];
 
+  constructor(private el: ElementRef) {
+  }
+
   ngOnInit(): void {
     this.canvas = new fabric.Canvas("c", {
       centeredScaling: true,
@@ -25,13 +30,34 @@ export class YaiCanvasComponent implements OnInit {
       selection: true
     });
 
-    this.canvas.setWidth(this.width);
-    this.canvas.setHeight(this.height);
+    this.cavasResize();
 
     this.addItem(new Item('hello'));
     this.addItem(new Item('hello2'));
 
     this.clear();
+  }
+
+  ngOnDestroy() {
+    if (this.sizeCheckInterval !== null) {
+      clearInterval(this.sizeCheckInterval);
+    }
+  }
+
+  ngAfterContentInit(): void {
+    this.sizeCheckInterval = setInterval(() => {this.cavasResize();}, 10);
+  }
+
+  cavasResize() {
+    let h = this.el.nativeElement.offsetHeight;
+    let w = this.el.nativeElement.offsetWidth;
+
+    if (w !== this.width || h !== this.height) {
+      this.width = w;
+      this.height = h
+      this.canvas.setWidth(this.width);
+      this.canvas.setHeight(this.height);
+    }
   }
 
   addText(text) {
@@ -81,9 +107,9 @@ export class YaiCanvasComponent implements OnInit {
       case 'rectangle':
         this.addRectangle();
         break;
-        case 'circle':
-          this.addCircle();
-          break;
+      case 'circle':
+        this.addCircle();
+        break;
     }
   }
 
