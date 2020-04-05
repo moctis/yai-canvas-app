@@ -18,3 +18,7 @@ canvas.add(text);
 
 var text2 = new fabric.Text("hello2");
 canvas.add(text2);
+
+
+var text3 = new fabric.Text("hello3");
+canvas.add(text3);
