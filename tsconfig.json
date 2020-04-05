@@ -1,29 +1,23 @@
 {
-    "compileOnSave": true,
-    "compilerOptions": {
-      "module": "commonjs",
-      "strict": false,
-      "baseUrl": "./",
-      "outDir": "build",
-      "sourceMap": true,
-      "removeComments": true,
-      "experimentalDecorators": true,
-      "target": "es6",
-      "emitDecoratorMetadata": true,
-      "moduleResolution": "node",
-      "importHelpers": true,
-      "types": [
-        "node"
-      ],
-      "typeRoots": [
-        "node_modules/@types"
-      ]
-    },
-    "include": [
-      "./src/**/*.ts"
-    ],
-    "exclude": [
-      "./src/**/*.test.ts",
-      "./src/public/"
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
     ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
+}
