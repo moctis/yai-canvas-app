@@ -1,32 +1,7 @@
 .grid-container {
-    display: grid;
-    padding:20px;
-    grid-column-gap: 20px;
-    grid-template-columns: auto 800px;
-    grid-template-areas:
-      "cqrs canvas";
+    padding:8px;
   }
 
-   
-  #cqrs {
-    grid-area: cqrs;
-  }
-   
-   
   #canvas {
-    grid-area: canvas;
+      width: 768px;
   }
-
-//   canvas {
-//     position: absolute;
-//     left:8px;
-//     border: rgba(0,0,0,0.2) 1px solid;
-//     -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-//     -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-//     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-//   } 
-  
-//   .canvas-container{
-//     grid-area: canvas;
-//   }
-  
