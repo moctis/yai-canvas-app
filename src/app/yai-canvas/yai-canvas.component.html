@@ -1,17 +1,17 @@
-<mat-card id="canvas">
+<mat-card class="full" color="primary" id="canvas">
+    <div mat-card-image>
+        <canvas id="c"></canvas>
+    </div>
     <mat-card-header>
         <mat-card-title>YAI Canvas</mat-card-title>
         <mat-card-subtitle>collaborate</mat-card-subtitle>
     </mat-card-header>
-    <div mat-card-image>
-        <canvas id="c"></canvas>
-    </div>
     <mat-card-actions>
         <button mat-raised-button color="primary" (click)="add('note')">
-            <mat-icon>note</mat-icon> Note
+            <mat-icon>note</mat-icon>
         </button>
         <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
-            <mat-icon>crop_din</mat-icon> shape
+            <mat-icon>crop_din</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="add('rectangle')">

@@ -8,16 +8,15 @@ import { Item } from './../Item';
   styleUrls: ['./yai-canvas.component.scss']
 })
 export class YaiCanvasComponent implements OnInit {
+  canvas: any;
+  width: number = 1024;
+  height: number = 768;
+
   item: Item;
   items: Item[] = [
     new Item("A"),
     new Item("B"),
   ];
-
-  canvas: any;
-  width: number = 1008;
-  height: number = 600;
-
 
   ngOnInit(): void {
     this.canvas = new fabric.Canvas("c", {
