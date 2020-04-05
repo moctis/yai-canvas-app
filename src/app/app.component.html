@@ -1,27 +1,3 @@
-<div class="container-fluid grid-container">
-  <mat-card id="canvas">
-    <mat-card-header>
-      <mat-card-title>YAI Canvas</mat-card-title>
-      <mat-card-subtitle>collaborate</mat-card-subtitle>
-    </mat-card-header>
-    <div mat-card-image>
-      <canvas  id="c"></canvas>
-    </div>    
-    <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="add('note')"><mat-icon>note</mat-icon> Note</button>
-      <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
-        <mat-icon>crop_din</mat-icon> shape
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="add('rectangle')">
-          <mat-icon>crop_square</mat-icon> Rectangle
-        </button>
-        <button mat-menu-item (click)="add('circle')">
-          <mat-icon>panorama_fish_eye</mat-icon> Circle
-        </button>
-      </mat-menu>
-
-    </mat-card-actions>
-  </mat-card>
+<div class="grid-container">
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
