@@ -4,7 +4,9 @@
       <mat-card-title>YAI Canvas</mat-card-title>
       <mat-card-subtitle>collaborate</mat-card-subtitle>
     </mat-card-header>
-    <canvas mat-card-image id="c"></canvas>
+    <div mat-card-image>
+      <canvas  id="c"></canvas>
+    </div>    
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="add('note')"><mat-icon>note</mat-icon> Note</button>
       <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
@@ -22,5 +24,4 @@
     </mat-card-actions>
   </mat-card>
 </div>
-
 <router-outlet></router-outlet>
