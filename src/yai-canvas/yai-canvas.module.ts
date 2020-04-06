@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { YaiCanvasRoutingModule } from './yai-canvas-routing.module';
 import { YaiCanvasComponent } from './yai-canvas.component';
-import { MaterialModule } from '../material-module';
-
+import { MaterialModule } from 'src/app/material-module';
 
 @NgModule({
   declarations: [YaiCanvasComponent],

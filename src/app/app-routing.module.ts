@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'canvas', loadChildren: () => import('./yai-canvas/yai-canvas.module').then(m => m.YaiCanvasModule)
+    path: 'canvas', loadChildren: () => import('../yai-canvas/yai-canvas.module').then(m => m.YaiCanvasModule)
   },
   {
     path: '',
