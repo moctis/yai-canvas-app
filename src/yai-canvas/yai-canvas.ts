@@ -1,19 +1,48 @@
 import { fabric } from "fabric";
 
 export class YaiCanvas {
-    canvas : fabric.Canvas;
+    canvas: fabric.Canvas;
 
     constructor() {
         this.canvas = new fabric.Canvas("c", {
             centeredScaling: true,
             backgroundColor: 'rgba(248,248,248)',
             selection: true
-          });
-      
+        });
+
+        this.test();
+
         this.canvas.on('mouse:down', this.onMouseDown());
         this.canvas.on('mouse:wheel', this.onMouseWheel());
         this.canvas.on('mouse:move', this.onMouseMove());
         this.canvas.on('mouse:up', this.onMouseUp());
+    }
+
+    test() {
+
+        var rect = new fabric.Rect({
+            width: 100,
+            height: 100,
+            fill: '#f55',
+            opacity: 0.7
+        });
+
+        var text = new fabric.IText("Group", {
+            fill: '#000',
+        })
+        var group = new fabric.Group([rect, text]);
+        group.left = (Math.random() * 0.8 + 0.1) * this.canvas.getWidth();
+        group.top = (Math.random() * 0.8 + 0.1) * this.canvas.getHeight();
+        
+        this.canvas.add(group);
+
+        var text2 = new fabric.IText("IText", {
+            fill: '#000',
+        })
+        text2.left = (Math.random() * 0.8 + 0.1) * this.canvas.getWidth();
+        text2.top = (Math.random() * 0.8 + 0.1) * this.canvas.getHeight();
+        
+        this.canvas.add(text2);
     }
     private onMouseUp(): any {
         return function (opt) {
@@ -77,3 +106,4 @@ export class YaiCanvas {
         return JSON.stringify(this.canvas)
     }
 }
+

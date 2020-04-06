@@ -25,9 +25,10 @@ export class YaiCanvasComponent implements OnInit, AfterContentInit {
     this.canvas = new YaiCanvas();
 
     this.onResize();
-    this.add('note').text = "Hello";
-    this.add('note').text = "World";
+    (this.add('note') as TextItem).Text = "Hello";
+    (this.add('note') as TextItem).Text = "World";
   }
+  
   ngOnDestroy() {
     if (this.ResizeInterval !== null) {
       clearInterval(this.ResizeInterval);
@@ -48,7 +49,7 @@ export class YaiCanvasComponent implements OnInit, AfterContentInit {
     }
   }
 
-  add(type: string):any {
+  add(type: string):IItem {
     var item: IItem;
 
     switch (type) {
@@ -69,7 +70,7 @@ export class YaiCanvasComponent implements OnInit, AfterContentInit {
     fabric.left = (Math.random() * 0.8 + 0.1) * this.width;
     fabric.top = (Math.random() * 0.8 + 0.1) * this.height;
     this.canvas.add(fabric);
-    return fabric;
+    return item;
   }
 
   serialize() {
