@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { fabric } from "fabric";
-import { Item } from './Item';
 
 @Component({
   selector: 'app-root',

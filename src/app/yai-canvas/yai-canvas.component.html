@@ -10,15 +10,27 @@
         <button mat-raised-button color="primary" (click)="add('note')">
             <mat-icon>note</mat-icon>
         </button>
-        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
-            <mat-icon>crop_din</mat-icon>
+        <button mat-raised-button color="primary" (click)="add('rectangle')">
+            <mat-icon>crop_square</mat-icon>
         </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="add('rectangle')">
+        <button mat-raised-button color="primary" (click)="add('circle')">
+            <mat-icon>panorama_fish_eye</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" color="primary">
+            <button mat-menu-item color="primary" (click)="add('note')">
+                <mat-icon>note</mat-icon> Note
+            </button>
+            <button mat-menu-item color="primary" (click)="add('rectangle')">
                 <mat-icon>crop_square</mat-icon> Rectangle
             </button>
-            <button mat-menu-item (click)="add('circle')">
+            <button mat-menu-item color="primary" (click)="add('circle')">
                 <mat-icon>panorama_fish_eye</mat-icon> Circle
+            </button>
+            <button mat-menu-item color="primary" (click)="serialize()">
+                ToJson
             </button>
         </mat-menu>
     </mat-card-actions>
